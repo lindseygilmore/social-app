@@ -64,7 +64,9 @@ router.post('/login', function(request, response){
 			bcrypt.compare(request.body.password, user.password, function(err, match){
 				if(match === true){ //if the match is true and the login session is active(true), then redirect the user to their profile page
 					request.session.loggedIn === true; //we know that we're logged in from this line
-					response.redirect('/users' + user.index);
+					// response.redirect('/users' + user.index);
+					console.log('success');
+					// response.redirect('');
 				}else{
 					response.redirect('/users/login');
 				}
