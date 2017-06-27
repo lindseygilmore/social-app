@@ -1,0 +1,21 @@
+<h1>TweetBook</h1>
+
+
+<img style='height:370px; width: 595px' src='{{ image }}'/>
+<link href='./styles/style.css' rel='stylesheet'></link>
+<h2>{{ name }}</h2>
+<h3>{{ title }}</h3>
+<h3>{{ company }}</h3>
+
+<h3>Top Friends</h3>
+	<ol>
+		{{#each topFriends}}
+			<li><a href='/profile?index={{ this.index }}'>{{ this.name }}</a></li>
+		{{/each}}
+	</ol>
+
+
+{{#if loggedIn}}
+	<input placeholder="Show {{ name }} some love"/>
+	<button id='comment'>Post</button>
+{{/if}}
