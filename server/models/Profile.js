@@ -1,17 +1,14 @@
 var mongoose = require('mongoose');
-var connectionString = 'mongodb://localhost/social-media'
 
-// tells mongoose where the database is;
-mongoose.connect(connectionString);
+var ProfileSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+  name: String,
+  age: Number,
+  profession: String
+  // reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}]
+});
 
-mongoose.connection.on('connected', function(){
-  console.log('connected to' + connectionString);
-})
+var profileModel = mongoose.model('Profile', ProfileSchema);
 
-mongoose.connection.on('error', function(error){
-  console.log('mongodb error ' + error );
-})
-
-mongoose.connection.on('disconnected', function(){
-  console.log('Mongoose disconnected from' + connectionString);
-})
+module.exports = profileModel;
