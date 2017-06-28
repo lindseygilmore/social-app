@@ -1,4 +1,7 @@
 <h3>Thanks for signing in! Here are your other friends using TweetBook</h3>
+
+<h4>Welcome,  {{ session.name }}</h4>
+
 <ul>
 {{#each allProfiles}}
   <li>{{this.name}} | {{this.age}} | {{this.profession}}</li>

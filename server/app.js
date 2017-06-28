@@ -15,9 +15,11 @@ app.use(session( {
 
 var ProfileController = require('./controllers/ProfileController'); //updated
 var UserController = require('./controllers/UserController');
+var ReviewController = require('./controllers/ReviewController');
 
 app.use('/profiles', ProfileController);
 app.use('/users', UserController);
+app.use('/reviews', ReviewController);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
