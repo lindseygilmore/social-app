@@ -1,11 +1,6 @@
-<h1>Name: {{name}}</h1>
-<h2>Title: {{title}}</h2>
-<h3>Company: {{company}}<
-<h4>Posts:
-
-{{!-- sends a post request to /comments with a body that has a key of text and value of the input --}}
-<form action='/comments' method='POST'>
-	<input name='text' placeholder='Type your comment here.'/>
-	<button>Submit</button>
-</form>
-
+<h3>Thanks for signing in! Here are your other friends using TweetBook</h3>
+<ul>
+{{#each allProfiles}}
+  <li>{{this.name}} | {{this.age}} | {{this.profession}}</li>
+{{/each}}
+</ul>

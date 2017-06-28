@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<link href='./styles/style.css' rel='stylesheet'></link>
-</head>
-<body>
-	{{#if session.loggedIn}}
-	<div style='width: 100%; text-align: right'>
-	Welcome,  {{ session.email }}<a href="/users/logout">Logout</a> {{!-- only show the logout button if you're logged in --}}
-	</div>
-	{{/if}}
-	{{{ body }}}
+  <head>
+    <meta charset="utf-8">
+     
+    <link rel="stylesheet" href="./styles/style.css"> 
 
-
-</body>
+    <h1>TweetBook</h1>
+  </head>
+  <body>
+    {{#if loggedIn}}
+      <div style="width: 100%; text-align: right">
+        <a href="/users/logout">Logout</a>
+      </div>
+    {{/if}}
+    {{{ body }}}
+  </body>
 </html>
