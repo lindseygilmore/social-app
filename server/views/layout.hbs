@@ -5,6 +5,13 @@
 	<link href='./styles/style.css' rel='stylesheet'></link>
 </head>
 <body>
-{{{ body }}}
+	{{#if session.loggedIn}}
+	<div style='width: 100%; text-align: right'>
+	Welcome,  {{ session.email }}<a href="/users/logout">Logout</a> {{!-- only show the logout button if you're logged in --}}
+	</div>
+	{{/if}}
+	{{{ body }}}
+
+
 </body>
 </html>

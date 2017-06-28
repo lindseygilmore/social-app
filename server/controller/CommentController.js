@@ -11,6 +11,7 @@ router.get('/view', function(request, response){
 	Comment.find(function(err, comment){
 		var myComments = {allComments: comments}; //making an array so that the comments show up as an array
 		if(request.session.loggedIn === true){
+			var myComments = {allComments: comments, session: request.session};
 			response.render('comments', myComments);
 		}else{
 			response.redirect('/users/login');

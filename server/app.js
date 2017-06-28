@@ -35,8 +35,6 @@ app.set('view engine', 'hbs'); //npm install hbs
 
 
 
-
-
 app.get('/', function(request, response){ 
 	response.render('home');
 })

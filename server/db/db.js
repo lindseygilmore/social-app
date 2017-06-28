@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var connectionString = 'mongodb://localhost/TweetBook'//choose a different word from 'books'. in this case, 'library' is the name of the database
+var connectionString = 'mongodb://localhost/TweetBook1'//choose a different word from 'books'. in this case, 'library' is the name of the database
 
 mongoose.connect(connectionString);//tells mongoose where the database is
 

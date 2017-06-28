@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var User = require('../models/Comment'); //copy over code form CommentController and replace all Comments/comment with User
+var User = require('../models/User'); //copy over code form CommentController and replace all Comments/comment with User
 var bodyParser = require('body-parser');
 var bcrypt = require('bcrypt');
 
@@ -21,6 +21,13 @@ router.get('/register', function(request, response){
 router.get('/login', function(request, response){
 	response.render('login');
 })
+
+//LOGOUT
+// make a get request to /users/logout
+router.get('/logout', function(request, response){
+	request.session.loggedIn = false;
+	response.redirect('/users/login');
+});
 
 
 //get all the comments
@@ -46,11 +53,19 @@ router.post('/register', function(request, response){
 		console.log(hash);
 		var user = new User({
 			email: request.body.email,
-			password: hash
+			password: hash,
+			name: request.body.name,
+			title: request.body.title,
+			company: request.body.company
 			})
 
 		user.save();
-		response.redirect('/profile');
+
+		request.session.loggedIn = true;
+		request.session.email = request.body.email; //or user.email
+
+		console.log(request.body);
+		response.redirect('/profile/' + user.id);
 	}) 
 })
 
@@ -65,6 +80,7 @@ router.post('/login', function(request, response){
 				if(match === true){ //if the match is true and the login session is active(true), then redirect the user to their profile page
 					request.session.loggedIn === true; //we know that we're logged in from this line
 					// response.redirect('/users' + user.index);
+					response.send("You're logged in as " + user.name)
 					response.redirect('/users/profile');
 					// response.redirect('');
 				}else{
