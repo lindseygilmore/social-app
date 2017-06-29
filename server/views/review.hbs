@@ -6,14 +6,14 @@
 
 <!-- sends a post request to /reviews with a body that has a key
 of text and value of the input -->
-<form action="/reviews" method="POST">
+<form action="/comment" method="POST">
   <input name="text" placeholder="Type your review here"/>
-  <input name="bookId" value="{{id}}" />
+  <input name="profileId" value="{{id}}" />
   <button>Submit</button>
 </form>
 
 <ol>
-{{#each reviews}}
-  <li>{{this.text}}</li>
-{{/each}}
+	{{#each review}}
+	  <li>{{this.text}}</li>
+	{{/each}}
 </ol>

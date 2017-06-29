@@ -24,6 +24,7 @@
 var express = require('express');
 var router = express.Router();
 var Profile = require('../models/Profile');
+var User = require('../models/User');
 var bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({extended: true}));
@@ -35,7 +36,7 @@ router.use(bodyParser.urlencoded({extended: true}));
 
 // GET request to /profile/view
 router.get('/view', function(request, response){
-  Profile.find(function(error, profiles){
+  User.find(function(error, profiles){
     if(request.session.loggedIn === true){
       var myProfile = {allProfiles: profiles, loggedIn: true};
       response.render('profiles', myProfile);

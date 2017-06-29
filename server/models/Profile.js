@@ -5,8 +5,8 @@ var ProfileSchema = new mongoose.Schema({
   password: String,
   name: String,
   age: Number,
-  profession: String
-  // reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}]
+  profession: String,
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]//ref is the collection the database looks in
 });
 
 var profileModel = mongoose.model('Profile', ProfileSchema);

@@ -1,9 +1,10 @@
-<h3>Thanks for signing in! Here are your other friends using TweetBook</h3>
+<h3>Thanks for signing up!</h3>
+<h3>Here are your other friends who have signed up for TweetBook:</h3>
 
-<h4>Welcome,  {{ session.name }}</h4>
+
 
 <ul>
 {{#each allProfiles}}
-  <li>{{this.name}} | {{this.age}} | {{this.profession}}</li>
+  <li><a href='/users/{{this.id}}'>{{this.name}}</a> | {{this.age}} | {{this.profession}}</li>
 {{/each}}
 </ul>

@@ -1,0 +1,38 @@
+
+
+{{!-- <img style='height:370px; width: 595px' src='{{ image }}'/>
+ --}}
+<h2>{{name}}</h2>
+<h3>{{ age }}</h3>
+<h3>{{ profession }}</h3>
+
+{{!-- <h3>Top Friends</h3>
+	<ol>
+		{{#each topFriends}}
+			<li><a href='/profile?index={{ this.index }}'>{{ this.name }}</a></li>
+		{{/each}}
+	</ol>
+ --}}
+
+ <form action="/comment" method="POST">
+  <input name="text" placeholder="Type your comment here"/>
+  <input name="bookId" value="{{id}}" />
+  <button>Submit</button>
+</form>
+
+<ol>
+	{{#each comment}}
+	  <li>{{this.text}}</li>
+	{{/each}}
+</ol>
+
+
+
+{{!-- {{#if loggedIn}}
+	<input id='love' placeholder="Show {{ name }} some love"/>
+	<button id='comment'>Post</button>
+{{/if}}
+ --}}
+
+
+

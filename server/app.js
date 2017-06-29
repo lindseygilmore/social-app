@@ -4,6 +4,7 @@ var express = require('express'),
     path = require('path'),
     session = require('express-session'),
     Profile = require('./models/Profile');
+
     require('./db/db.js');
 
 app.use(session( {
@@ -15,11 +16,11 @@ app.use(session( {
 
 var ProfileController = require('./controllers/ProfileController'); //updated
 var UserController = require('./controllers/UserController');
-var ReviewController = require('./controllers/ReviewController');
+var CommentController = require('./controllers/CommentController');
 
 app.use('/profiles', ProfileController);
 app.use('/users', UserController);
-app.use('/reviews', ReviewController);
+app.use('/comment', CommentController);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

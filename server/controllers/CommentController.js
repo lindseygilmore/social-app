@@ -1,31 +1,37 @@
 var express = require('express');
 var router = express.Router();
-var Review = require('../models/Review');
+var Comment = require('../models/Comment');
 var Profile = require('../models/Profile');
-var User = require('../models/User');
 var bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({extended: true}));
+
+router.get('/', function(request, response){
+	response.render('user-profile');
+})
 
 // POST request to /reviews
 router.post('/', function(request, response){
   // grab the text from the request body and save it as a new
   // review
-  var reviewText = request.body.text;
-  var review = new Review({text: reviewText});
+  var commentText = request.body.text;
+  var comment = new Comment({text: commentText});
+  // variable		//constructor
+  comment.save();
 
-  review.save();
   // get the id of the user that commented
-  var userId = request.body.userId;
-  // grab the book with that id and
-  User.findById(userId, function(error, user){
+
+  console.log(request.body)
+  response.send('ran');
+  // 	var profileId = request.body
+
+ 	// User.findById(id, function())
+  // grab the comment with that id and
+ 	
     // get the mongoose id of the recently saved review
-    var reviewId = review.id
+   
     // push the review id in to the book review array
-    user.reviews.push(reviewId);
-    user.save();
-    response.redirect(request.get('referer'));
-  })
-})
+    
+});
 
 module.exports = router;

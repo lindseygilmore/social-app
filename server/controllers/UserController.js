@@ -32,15 +32,15 @@ router.get('/', function(request, response){
     response.json(users);
   });
 })
-
+//////////////////////////////////
 router.get('/:id', function(request, response){
   //send specific user with that id
   var id = request.params.id;
   User.findById(id, function(error, user){
-    response.json(user);
+    response.render('user-profile', user);
   })
 })
-
+/////////////////////////////////
 // POST request to /users
 router.post('/', function(request, response){
   //create a new user
