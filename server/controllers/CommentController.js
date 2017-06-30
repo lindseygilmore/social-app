@@ -19,18 +19,23 @@ router.post('/', function(request, response){
   // variable		//constructor
   comment.save();
 
+/////////////////////////////////////////////
   // get the id of the user that commented
-
+  profileId = request.body.profileId;
   console.log(request.body)
   response.send('ran');
-  // 	var profileId = request.body
 
- 	// User.findById(id, function())
-  // grab the comment with that id and
- 	
-    // get the mongoose id of the recently saved review
-   
-    // push the review id in to the book review array
+/////////////////////////////////////////////
+  Profile.findById(profileId, function(error, profile){
+
+  	var comment = request.body.text;
+
+  	profile.push(comment);
+
+  	profile.save();
+
+  })
+  
     
 });
 
